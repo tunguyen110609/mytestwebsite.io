@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Nails | Premium Nail Salon</title>
+    <base target="_self">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF85A2',
+                        secondary: '#FFD6C0',
+                        accent: '#A267AC',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-all duration-300">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center" onclick="navigate(event, 'home')">
+                        <i class="fas fa-spa text-primary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900 dark:text-white">Luxe Nails</span>
+                    </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#" class="text-gray-900 dark:text-white hover:text-primary px-3 py-2 text-sm font-medium" onclick="navigate(event, 'home')">Home</a>
+                    <a href="#" class="text-gray-900 dark:text-white hover:text-primary px-3 py-2 text-sm font-medium" onclick="navigate(event, 'services')">Services</a>
+                    <a href="#" class="text-gray-900 dark:text-white hover:text-primary px-3 py-2 text-sm font-medium" onclick="navigate(event, 'gallery')">Gallery</a>
+                    <a href="#" class="text-gray-900 dark:text-white hover:text-primary px-3 py-2 text-sm font-medium" onclick="navigate(event, 'about')">About</a>
+                    <a href="#" class="text-gray-900 dark:text-white hover:text-primary px-3 py-2 text-sm font-medium" onclick="navigate(event, 'contact')">Contact</a>
+                    <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-full text-sm font-medium transition-all" onclick="navigate(event, 'book')">
+                        Book Now
+                    </button>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-900 dark:text-white hover:text-primary" onclick="navigate(event, 'home')">Home</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-900 dark:text-white hover:text-primary" onclick="navigate(event, 'services')">Services</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-900 dark:text-white hover:text-primary" onclick="navigate(event, 'gallery')">Gallery</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-900 dark:text-white hover:text-primary" onclick="navigate(event, 'about')">About</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-gray-900 dark:text-white hover:text-primary" onclick="navigate(event, 'contact')">Contact</a>
+                <a href="#" class="block px-3 py-2 text-base font-medium text-primary" onclick="navigate(event, 'book')">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg pt-32 pb-20 px-4 text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:w-1/2">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Pamper Your Hands & Feet</h1>
+                <p class="text-xl mb-8">Experience luxury nail care with our premium services and organic products.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-primary hover:bg-opacity-90 text-white px-6 py-3 rounded-full text-lg font-medium transition-all" onclick="navigate(event, 'book')">
+                        Book Appointment
+                    </button>
+                    <button class="bg-white hover:bg-gray-100 text-gray-800 px-6 py-3 rounded-full text-lg font-medium transition-all" onclick="navigate(event, 'services')">
+                        Our Services
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 px-4 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Services</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">We offer a wide range of nail services using high-quality products and the latest techniques.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service cards will be generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 px-4 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Work</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Browse our gallery to see examples of our nail art and treatments.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Gallery items will be generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-4 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Nail technician at work" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">About Luxe Nails</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Founded in 2015, Luxe Nails has been providing premium nail care services with a focus on hygiene, quality, and customer satisfaction.</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Our team of certified nail technicians stays updated with the latest trends and techniques to bring you the best possible service.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Sanitized tools</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Premium products</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Comfortable seating</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-2"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Free consultations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 px-4 bg-primary text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="max-w-2xl mx-auto opacity-90">Don't just take our word for it - hear from our satisfied customers.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonials will be generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="book" class="py-16 px-4 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+            <div class="md:flex">
+                <div class="md:w-1/2 bg-primary text-white p-8">
+                    <h2 class="text-2xl font-bold mb-4">Book Your Appointment</h2>
+                    <p class="mb-6">Ready to experience the Luxe Nails difference? Book your appointment online or give us a call.</p>
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-2">Opening Hours</h3>
+                        <p class="mb-1">Monday - Friday: 9am - 7pm</p>
+                        <p class="mb-1">Saturday: 10am - 6pm</p>
+                        <p>Sunday: 11am - 5pm</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">Contact</h3>
+                        <p class="mb-1"><i class="fas fa-phone-alt mr-2"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope mr-2"></i> hello@luxenails.com</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 p-8">
+                    <form id="booking-form">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 dark:text-gray-300 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="service" class="block text-gray-700 dark:text-gray-300 mb-2">Service</label>
+                            <select id="service" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                                <option value="">Select a service</option>
+                                <!-- Service options will be generated here -->
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="date" class="block text-gray-700 dark:text-gray-300 mb-2">Date</label>
+                            <input type="date" id="date" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-opacity-90 text-white py-3 rounded-lg font-medium transition-all">
+                            Book Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Visit Us</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">We'd love to see you at our salon. Here's how to find us.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg h-full">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Our Location</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">123 Beauty Street<br>New York, NY 10001</p>
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573813864!2d-73.9878449245376!3d40.7484409713896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1689876543210!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg h-full">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Contact Form</h3>
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label for="contact-name" class="block text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                                <input type="text" id="contact-name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-600 dark:border-gray-500 dark:text-white" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="contact-email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                                <input type="email" id="contact-email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-600 dark:border-gray-500 dark:text-white" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="contact-message" class="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                                <textarea id="contact-message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-600 dark:border-gray-500 dark:text-white" required></textarea>
+                            </div>
+                            <button type="submit" class="bg-primary hover:bg-opacity-90 text-white px-6 py-3 rounded-lg font-medium transition-all">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Luxe Nails</h3>
+                    <p class="text-gray-400">Premium nail care services with a focus on hygiene, quality, and customer satisfaction.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all" onclick="navigate(event, 'home')">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all" onclick="navigate(event, 'services')">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all" onclick="navigate(event, 'gallery')">Gallery</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all" onclick="navigate(event, 'about')">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all" onclick="navigate(event, 'contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all" onclick="navigate(event, 'services')">Manicures</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all" onclick="navigate(event, 'services')">Pedicures</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all" onclick="navigate(event, 'services')">Nail Art</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all" onclick="navigate(event, 'services')">Gel Extensions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all" onclick="navigate(event, 'services')">Spa Treatments</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl transition-all"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                    <p class="text-gray-400">Subscribe to our newsletter</p>
+                    <form class="mt-2 flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-900 w-full">
+                        <button type="submit" class="bg-primary hover:bg-opacity-90 px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Luxe Nails. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data arrays
+        const services = [
+            {
+                title: "Classic Manicure",
+                description: "Basic nail care including shaping, cuticle care, and polish application.",
+                price: "$25",
+                duration: "30 min",
+                icon: "hand-sparkles"
+            },
+            {
+                title: "Spa Pedicure",
+                description: "Relaxing foot soak, exfoliation, massage, and polish application.",
+                price: "$45",
+                duration: "45 min",
+                icon: "spa"
+            },
+            {
+                title: "Gel Polish",
+                description: "Long-lasting gel polish that stays chip-free for up to 3 weeks.",
+                price: "$35",
+                duration: "45 min",
+                icon: "paint-brush"
+            },
+            {
+                title: "Acrylic Extensions",
+                description: "Custom acrylic nail extensions with your choice of shape and length.",
+                price: "$60",
+                duration: "1.5 hrs",
+                icon: "ruler-combined"
+            },
+            {
+                title: "Nail Art Design",
+                description: "Custom nail art designs to express your unique style.",
+                price: "$10+",
+                duration: "Varies",
+                icon: "palette"
+            },
+            {
+                title: "Paraffin Wax Treatment",
+                description: "Deep moisturizing treatment with warm paraffin wax for hands or feet.",
+                price: "$20",
+                duration: "20 min",
+                icon: "hand-holding-water"
+            }
+        ];
+
+        const galleryItems = [
+            {
+                src: "https://images.unsplash.com/photo-1596704017259-6c0a2f4f1f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                alt: "Floral nail art"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1596704017259-6c0a2f4f1f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                alt: "French manicure"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1596704017259-6c0a2f4f1f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                alt: "Ombre nails"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1596704017259-6c0a2f4f1f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                alt: "Glitter nails"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1596704017259-6c0a2f4f1f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                alt: "Marble design"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1596704017259-6c0a2f4f1f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                alt: "Matte black nails"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1596704017259-6c0a2f4f1f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                alt: "Pedicure with design"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1596704017259-6c0a2f4f1f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+                alt: "Seasonal nail art"
+            }
+        ];
+
+        const testimonials = [
+            {
+                quote: "The best nail salon I've ever been to! The technicians are so skilled and the atmosphere is so relaxing.",
+                author: "Sarah Johnson",
+                rating: 5
+            },
+            {
+                quote: "My gel manicure lasted a full 3 weeks without a single chip. I'm a customer for life!",
+                author: "Michelle Rodriguez",
+                rating: 5
+            },
+            {
+                quote: "The attention to detail is incredible. They take their time to make sure everything is perfect.",
+                author: "David Kim",
+                rating: 4
+            }
+        ];
+
+        // Generate service cards
+        const servicesContainer = document.querySelector('#services .grid');
+        services.forEach(service => {
+            const card = document.createElement('div');
+            card.className = 'service-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 transition-all';
+            card.innerHTML = `
+                <div class="text-primary text-4xl mb-4">
+                    <i class="fas fa-${service.icon}"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">${service.title}</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">${service.description}</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-primary font-bold">${service.price}</span>
+                    <span class="text-gray-500 dark:text-gray-400 text-sm">${service.duration}</span>
+                </div>
+            `;
+            servicesContainer.appendChild(card);
+        });
+
+        // Generate gallery items
+        const galleryContainer = document.querySelector('#gallery .grid');
+        galleryItems.forEach(item => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all';
+            galleryItem.innerHTML = `
+                <img src="${item.src}" alt="${item.alt}" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+            `;
+            galleryContainer.appendChild(galleryItem);
+        });
+
+        // Generate testimonials
+        const testimonialsContainer = document.querySelector('.bg-primary .grid');
+        testimonials.forEach(testimonial => {
+            const testimonialCard = document.createElement('div');
+            testimonialCard.className = 'bg-white bg-opacity-10 p-6 rounded-lg';
+            testimonialCard.innerHTML = `
+                <div class="flex mb-4">
+                    ${Array(testimonial.rating).fill('<i class="fas fa-star"></i>').join('')}
+                    ${Array(5 - testimonial.rating).fill('<i class="far fa-star"></i>').join('')}
+                </div>
+                <p class="italic mb-4">"${testimonial.quote}"</p>
+                <p class="font-bold">- ${testimonial.author}</p>
+            `;
+            testimonialsContainer.appendChild(testimonialCard);
+        });
+
+        // Generate service options for booking form
+        const serviceSelect = document.getElementById('service');
+        services.forEach(service => {
+            const option = document.createElement('option');
+            option.value = service.title;
+            option.textContent = `${service.title} (${service.price})`;
+            serviceSelect.appendChild(option);
+        });
+
+        // Navigation function
+        function navigate(event, sectionId) {
+            event.preventDefault();
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('hidden') === false) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Form submissions
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your booking request! We will contact you shortly to confirm your appointment.');
+            this.reset();
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Set minimum date for booking to today
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
